@@ -1,1 +1,43 @@
-<p>model works!</p>
+<form [formGroup]="formRegister" (submit)="onSubmit()" class="w-25 my-3 mx-auto">
+	<label for="name" class="form-label mt-3">Nombre*</label>
+	<input type="text" name="name" id="name" class="form-control" formControlName="name">
+
+	<div class="error" *ngIf="formRegister.controls['name'].errors?.['required'] && formRegister.controls['name'].touched">
+		<span>El campo Nombre es requerido</span>
+	</div>
+
+	<!-- AÑADIR EL RESTO DE MENSAJES DE ERROR EN EL FORMULARIO. VIDEO 98 DEL CURSO ANGULAR 11+ LA BIBLIA -->
+
+	<div class="error" *ngIf="formRegister.controls['name'].errors?.['minlength'] && formRegister.controls['name'].touched">
+		<span>El campo debe tener {{ formRegister.controls['name'].errors?.['minlength'].requiredLength }} caracteres</span>
+		<span>El campo debe tener {{ formRegister.controls['name'].errors?.['minlength'].requiredLength }} caracteres</span>
+		<!-- <p>{{ formRegister.controls['name'].errors | json }}</p> -->
+		<!-- { "minlength": { "requiredLength": 3, "actualLength": 1 } } -->
+	</div>
+
+	
+
+	<label for="surname" class="form-label mt-3">Apellidos</label>
+	<input type="text" name="surname" id="surname" class="form-control" formControlName="surname">
+
+	<label for="age" class="form-label mt-3">Edad</label>
+	<input type="text" name="age" id="age" class="form-control" formControlName="age">
+
+	<label for="email" class="form-label mt-3">Email</label>
+	<input type="text" name="email" id="email" class="form-control" formControlName="email">
+
+	<label for="dni" class="form-label mt-3">DNI</label>
+	<input type="text" name="dni" id="dni" class="form-control" formControlName="dni">
+
+	<label for="password" class="form-label mt-3">Password</label>
+	<input type="text" name="password" id="password" class="form-control" formControlName="password">
+
+	<label for="repeat_password" class="form-label mt-3">Repite password</label>
+	<input type="text" name="repeat_password" id="repeat_password" class="form-control" formControlName="repeat_password">
+
+	<input type="submit" value="Enviar" class="btn btn-primary w-100" [disabled]="!formRegister.valid">
+</form>
+
+<p>formRegister.value: {{ formRegister.value | json }}</p>
+
+<p>!formRegister.valid: {{ !formRegister.valid | json}}</p>

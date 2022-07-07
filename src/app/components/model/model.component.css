@@ -1,0 +1,24 @@
+/*
+ESTADOS DE LOS INPUTS EN ANGULAR
+
+ng-untouched  <>  ng-touched
+ng-pristine  <>  ng-dirty
+ng-invalid  <>  ng-valid
+*/
+
+input.ng-invalid.ng-touched {
+	outline: 3px solid tomato;
+}
+
+input.ng-valid.ng-touched.ng-dirty {
+	outline: 3px solid lightgreen;
+}
+
+.error {
+	color: tomato;
+	font-size: 0.8rem;
+}
+
+.error span {
+	margin: 0;
+}

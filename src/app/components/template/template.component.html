@@ -1,1 +1,13 @@
-<p>template works!</p>
+<form #formRegister="ngForm" (ngSubmit)="onSubmit(formRegister.value)" class="w-25 my-3 mx-auto">
+	<label for="name" class="form-label">Nombre</label>
+	<input type="text" name="name" id="name" class="form-control mb-3" ngModel>
+	<label for="surname" class="form-label">Apellidos</label>
+	<input type="text" name="surname" id="surname" class="form-control mb-3" ngModel>
+	<label for="age" class="form-label">Edad</label>
+	<input type="text" name="age" id="age" class="form-control mb-3" ngModel>
+	<label for="address" class="form-label">Dirección</label>
+	<input type="text" name="address" id="address" class="form-control mb-3" ngModel>
+	<input type="submit" value="Enviar" class="w-100 btn btn-primary">
+</form>
+
+{{ formRegister.value | json }}
